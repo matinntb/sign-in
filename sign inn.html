@@ -1,0 +1,231 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+            function notEntered()
+            {
+                var inputbox=document.getElementById('inputbox').value
+                var password=document.getElementById('password').value
+                if (inputbox=='' || password=='')
+                
+                    var txt = '*Please Enter username and password';
+                    var speed = 50;
+                    if (i < txt.length) {
+                        document.getElementById("mytxt").innerHTML += txt.charAt(i);
+                        i++;
+                        setTimeout(notEntered, speed);
+                    }
+
+            }
+            function on_blur(){
+                var password=document.getElementById('password').value
+                if (password.length<6 )
+                    document.getElementById("mytxt").innerHTML = 'password should be greater than 6';
+                    
+                else{
+                    document.getElementById("mytxt").innerHTML = '';
+                }
+            }
+        </script>
+        <style>
+            
+            body{
+                margin:0px
+            }
+            #d1{
+                height: 100%;
+                min-width: 100%;
+                background: linear-gradient(to bottom left, #ffffff 0%, #ff99cc 88%);
+                position: fixed;
+                overflow: auto;
+                font-family:Arial, Helvetica, sans-serif;
+               
+              }
+                
+                  
+            #d2{
+                overflow-y: auto;
+                height: 100%;
+            }
+            .d3{
+                border:0;
+                background-color: #ffffff;
+                height: 480px;
+                width: 340px;
+                border-radius: 10px;
+                box-shadow: -30px 32px 74px -17px rgba(0,0,0,0.41);
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+            .d4{
+                width: 280;
+                color:rgb(146, 145, 145);
+                text-align:center;
+                margin:auto;
+            }
+            h1{
+                color: rgb(199, 71, 135);font-size: 40px;
+            }
+            .inputbox{
+                width:280px;height:35px;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;
+                border-bottom-style: hidden;
+
+                background-color: rgba(231, 225, 231, 0.685);
+                border-radius: 12px;
+            }
+            .inputbox:focus{
+                outline: 0ch;
+            }
+            .button{
+                height: 35px;
+                width: 250px;
+                background-color:#ff96cb;
+                border-radius: 15px;
+                border-top-style: hidden;
+                border-right-style: hidden;
+                border-left-style: hidden;
+                border-bottom-style: hidden;
+                
+                cursor: pointer;
+                text-align:center;
+                transition-duration: 0.7s;
+                padding:10;
+                background: linear-gradient(to bottom left, #ffffff 0%, #ff99cc 58%);
+                box-shadow: 0px 18px 20px -15px rgba(0,0,0,0.75);
+               
+                
+            }
+            
+            .button:hover{
+                height: 35px;
+                width:275px;
+                background: linear-gradient(to bottom left, #ffffff 0%, #ff99cc 68%);
+                transition-duration: 0.7s;
+                box-shadow: none;
+                transform:translateY(5px) ;
+                
+                
+            }
+            .button:after {
+
+                transition: all 0.8s
+            
+            }
+            .button:focus{
+                outline: 0ch;
+            }
+            .d5{
+                text-align:center;
+                margin-top:20%;
+            }
+            a{
+                text-decoration:none;
+                ;
+                
+                color: rgb(199, 71, 135);
+            }
+            .check{
+                float: left;
+                margin-top:0px;
+                display: inline-block;
+                overflow: hidden;
+               
+                    height: 18px;
+            }
+            .check:hover{
+                border-color: #ff53d4;
+                cursor: pointer;
+                
+            }
+            .check:active{
+                -webkit-perspective: 20;
+
+                perspective: 20;
+                transition: all 2s ease;
+                display: block;
+
+            }
+        
+            #forgot{
+                color:rgb(146, 145, 145);
+                text-decoration:underline;
+                font-size:12px;
+                float: right;
+                margin-right: 6px;
+                margin-bottom: 9px;
+            
+            }
+            #forgot:hover{
+                color: rgb(199, 71, 135)
+            }
+            #creat{
+                font-weight: bold;
+            }
+            #creat:hover{
+                text-decoration: underline;
+                color: #e278ad;
+
+            }
+            #mytxt
+            {
+                color: red;
+                width: 290;
+                height: 30;
+                text-align: center;
+                margin-left:26px;
+                margin-bottom: 10px;
+                margin-top: 0px;
+                font-size: 12px;
+
+            }
+           
+            .d8{
+                font-size:12px;
+                float: left;
+                margin-top:1px;
+                text-align: left;
+                margin-left: 0;
+                margin-right: 0;
+                width:110px;
+            }
+
+        .clearfix{
+            overflow:auto;
+        }   
+        
+           
+        </style>
+    </head>
+    <body>
+        <div id="d1">
+                   <div class="clearfix">
+                    <div class="d3"  >
+                        <form>
+                             </br><H1> Sign In </H1></br>
+                             <div id='mytxt'></div>
+                                <div class="d4" >
+                                    <input id='inputbox' class="inputbox" type="text" placeholder="  Email address or Username" /><br/><br/>
+                                    <input id='password' class="inputbox" type="password" placeholder="  Password" onblur="on_blur()"/><br/><br/>
+                                    <input class="check" type="checkbox"/><div class='d8'>Remember me</div>
+                                    <a href="#" id="forgot">Forgot password?</a><br/><br>                       
+                                    <input  class="button" id="b1" type="button" value="SIGN IN" onclick="notEntered()"/><br/>
+                                    <div class="d5">
+                                        
+                                        Don't have an account? 
+                                        <br/>
+                                        <a href="#" id="creat">Creat account</a>
+                                    </div>
+                                </div>
+                    </div>
+                        </form >
+            </div>
+                    
+        </div>
+    </body>
+</html>
